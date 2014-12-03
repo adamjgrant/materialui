@@ -328,6 +328,13 @@ hr
 =growl
   +growl-default
 
+  background-color: map-get($black, lighter)
+  border-radius: 0px
+  padding: 1rem $space
+
+  h1
+    line-height: normal
+
 // Modals
 // ------
 
@@ -356,4 +363,16 @@ hr
   +tooltip_trigger-default
 
 @import core/_direct-apply.sass
+
+.status_bar .status_bar-status
+  font-size: 1rem
+  padding: $space/2 $space
+  border-radius: 25px
+  min-width: 200px
+  font-weight: 100
+
+  &[data-type="status-yellow"]
+    background-color: map-get($black, lighter)
+    color: white
+
 @import vendor/_index
