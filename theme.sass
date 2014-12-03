@@ -16,7 +16,7 @@ $black: (lightest: #444, lighter: #333, light: #222)
 $colors: (red: #ff4081, orange: rgb(255, 152, 1), yellow: rgb(255, 235, 59), green: rgb(37, 155, 36), blue: rgb(4, 169, 244), violet: rgb(103, 58, 183))
 
 // Vendor libraries
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,500,700)
+@import url(http://fonts.googleapis.com/css?family=Roboto:200,400,300,500,700)
 
 // Ten point design variables
 // --------------------------
@@ -30,7 +30,7 @@ $default-font-family: 'Roboto', helvetica neue, sans-serif
 $mono-font-family:    'ubuntu-mono', monospace
 $default-font-size:   14px
 $default-font-color:  map-get($gray, darkest)
-$default-line-height: 1.4rem
+$default-line-height: 1.7rem
 
 // --------------------------
 
@@ -87,17 +87,33 @@ pre
   +heading-lg-default
   @content
 
+  font-size: 3.21rem
+  line-height: 3.43rem
+  color: map-get($black, light)
+
 =heading-md
   +heading-md-default
   @content
+
+  font-size: 2.43rem
+  line-height: 2.86rem
+  color: map-get($black, lightest)
 
 =heading-rg
   +heading-rg-default
   @content
 
+  font-size: 1.71rem
+  line-height: 2.29rem
+  color: $default-font-color
+
 =heading-sm
   +heading-sm-default
   @content
+
+  font-size: 1.1rem
+  line-height: 2rem
+  color: $default-font-color
 
 =heading-xs
   +heading-xs-default
@@ -131,7 +147,7 @@ h6
 
 =type
   +type-default
-  font-weight: 200
+  font-weight: 400
 
 html
   +type
@@ -198,6 +214,11 @@ html
 =container($args...)
   +container-default($args...)
   border-radius: 0
+  border-color: transparent
+  box-shadow: 0px 0px 5px map-get($gray, light)
+
+  > footer, > header
+    border-radius: 0
 
 =container-color($args...)
   +container-color-default($args...)
@@ -239,11 +260,28 @@ hr
 =navbar($args...)
   +navbar-default($args...)
 
+  nav>ul>li
+    >[role=button], button[role=button]
+      margin: -10px
+
+    &.menu-item.open, &.menu-item.open:hover
+      background: map-get($white, darker)
+      border-color: map-get($white, darker)
+
+      &:before
+        background: transparent
+
 =navbar-color($args...)
   +navbar-color-default($args...)
 
 =dropdown_menu
   +dropdown_menu-default
+
+  .menu-item ul li
+    a:not([role=button])
+      padding:
+        top: 14px
+        bottom: 14px
 
 // Table
 // -----
